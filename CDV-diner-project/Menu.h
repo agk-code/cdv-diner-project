@@ -10,7 +10,7 @@ private:
 	void changeChoose(int choose);
 public:
 	void showMenu();
-	void addCategory(Category);
+	void addCategory(Category cat);
 	Menu();
 	~Menu();
 };

@@ -1,7 +1,9 @@
 #include "Category.h"
 
-Category::Category(std::string name, std::vector<Dish> dishList)
+Category::Category(std::string _name, std::vector<Dish> _dishList)
 {
+	this->name = _name;
+	this->dishList = _dishList;
 }
 
 Category::~Category()

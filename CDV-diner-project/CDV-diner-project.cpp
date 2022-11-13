@@ -11,14 +11,14 @@ string name = "";
 vector<Dish> cart;
 bool delivery = false;
 
-void createMenu(Menu menu) {
+void createMenu(Menu *menu) {
 	Dish dish1("Zupa", "Opis", "1.Woda\n 2.Makaron\n", "1.Makraon\n", 13.37, 100000);
 	Dish dish2;
 	cout << dish1.readDishName() << endl;
 	cout << dish2.readDishName() << endl;
 	vector<Dish> list { dish1, dish2 };
 	Category zupy("Zupy", list);
-	menu.addCategory(zupy);
+	menu->addCategory(zupy);
 
 }
 
@@ -34,7 +34,7 @@ int main()
 
 	setName();
 
-	createMenu(menu);
+	createMenu(&menu);
 
 	menu.showMenu();
 
