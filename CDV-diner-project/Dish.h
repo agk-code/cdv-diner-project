@@ -2,7 +2,7 @@
 #include <string>
 class Dish
 {
-private:
+protected:
 	std::string name;
 	std::string description;
 	std::string ingredients;
@@ -13,13 +13,15 @@ private:
 public:
 	Dish(
 		std::string _name = "Testowy produkt",
-		std::string _description = "Test",
-		std::string _ingredients = "1.Sos\n 2.Makaron\n",
-		std::string _alergens = "1.Sos\n",
+		std::string _description = "",
+		std::string _ingredients = "",
+		std::string _alergens = "",
 		double _price = 420.69,
 		int _time = 1668352918
 	);
 	~Dish();
 	std::string readDishName();
+	double readDishPrice();
+	int readDishTime();
 };
 

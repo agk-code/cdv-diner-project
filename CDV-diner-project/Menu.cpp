@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "menu.h"
+#include "Menu.h"
 #include "Category.h"
 
 using namespace std;

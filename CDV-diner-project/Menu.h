@@ -11,6 +11,7 @@ private:
 public:
 	void showMenu();
 	void addCategory(Category cat);
+
 	Menu();
 	~Menu();
 };

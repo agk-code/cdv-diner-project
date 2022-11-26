@@ -1,14 +1,15 @@
 ﻿#include <iostream>
 #include <vector>
 
-#include "Menu.h";
-#include "Category.h";
-#include "Dish.h";
+#include "Menu.h"
+#include "Category.h"
+#include "Dish.h"
+#include "Cart.h"
+#include "CartProduct.h"
 
 using namespace std;
 
 string name = "";
-vector<Dish> cart;
 bool delivery = false;
 
 void createMenu(Menu *menu) {
@@ -27,15 +28,26 @@ void setName() {
 	cin >> name;
 }
 
+void createCart(Cart *cart) {
+	//Test function
+}
+
 int main()
 {
 		
 	Menu menu;
+	Cart cart;
 
 	setName();
 
 	createMenu(&menu);
 
+	createCart(&cart);
+
 	menu.showMenu();
+
+	for (int i = 0; i < cart.readCartList().size(); i++) {
+		cout << cart.readCartList()[i].readProductName() << endl;
+	}
 
 }
