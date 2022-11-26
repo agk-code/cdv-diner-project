@@ -17,3 +17,13 @@ Dish::~Dish()
 std::string Dish::readDishName() {
 	return std::string(this->name);
 }
+
+double Dish::readDishPrice()
+{
+	return this->price;
+}
+
+int Dish::readDishTime()
+{
+	return this->time;
+}
