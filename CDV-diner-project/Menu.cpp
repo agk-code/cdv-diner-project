@@ -25,6 +25,9 @@ void Menu::showMenu()
 {
 	cout << "Witaj w cudownym programie!" << endl;	
 	cout << this->list.size() << endl;
+	for (int i = 0; i < list.size(); i++) {
+		cout << list[i].readCategoryName() << endl;
+	}
 }
 
 void Menu::addCategory(Category cat)
