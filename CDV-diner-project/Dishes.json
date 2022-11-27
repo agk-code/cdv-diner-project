@@ -18,12 +18,12 @@
     },
     {
       "name": "13s surprise",
-      "description": "Zupa szczawiowa z dodatkiem 13 unikatowych sk�adnik�w, kt�re zaskoczc Was nietuzinkowa mieszanka smakow.",
+      "description": "Zupa szczawiowa z dodatkiem 13 unikatowych skladnikow, ktore zaskocza Was nietuzinkowa mieszanka smakow.",
       "ingredients": [
         "szczaw",
         "woda",
         "sol",
-        "13 tajemniczych sk�adnik�w"
+        "13 tajemniczych skladnikow"
       ],
       "alergens": [
         "gluten",
@@ -33,13 +33,13 @@
         "mleko",
         "soja",
         "ryby",
-        "mi�czaki"
+        "mieczaki"
       ],
       "price": 14.99
     },
     {
       "name": "Platinum star",
-      "description": "Niezr�wnana s�odka zupa jagodowa z dodatkiem barwnik�w i jadalnego brokatu. Zapewnia idealna dzienna dawke mikroplastiku.",
+      "description": "Niezrownana slodka zupa jagodowa z dodatkiem barwnikow i jadalnego brokatu. Zapewnia idealna dzienna dawke mikroplastiku.",
       "ingredients": [
         "woda",
         "sol",
@@ -62,7 +62,7 @@
   "main": [
     {
       "name": "Silver rapier",
-      "description": "Szasz�yk wieprzowy na srebryn rapierze z dodatkiem papryki i cebuli. Idealny do zjedzenia w trakcie walki.",
+      "description": "Szaszlyk wieprzowy na srebryn rapierze z dodatkiem papryki i cebuli. Idealny do zjedzenia w trakcie walki.",
       "ingredients": [
         "wieprzowina",
         "cebula",
@@ -127,7 +127,7 @@
       "name": "Sajgonki po polsku",
       "description": "Przystawka dla smakoszy kuchni polskiej. Sajgonki z dodatkiem miesa schabowego, ziemniakow i surowki. Idealne na poczatek niedzielnego obiadu.",
       "ingredients": [
-        "mi�so schabowe",
+        "mieso schabowe",
         "cienkie ciasto pszenne",
         "ziemniaki",
         "surowka",
@@ -146,11 +146,11 @@
       "time": 20
     },
     {
-      "name": "Krewetki s�ony karmel",
-      "description": "Zaskakujaco wciagajaca kompozycja smak�w. Krewetki z dodatkiem s�onego karmelu i pikantnej papryki.",
+      "name": "Krewetki slony karmel",
+      "description": "Zaskakujaco wciagajaca kompozycja smakow. Krewetki z dodatkiem slonego karmelu i pikantnej papryki.",
       "ingredients": [
-        "krewetki kr�lewskie",
-        "s�l",
+        "krewetki krolewskie",
+        "sol",
         "karmel",
         "ostra papryka",
         "pieprz"
@@ -164,7 +164,7 @@
       "ingredients": [
         "szpinak",
         "orzechy",
-        "s�l",
+        "sol",
         "pieprz",
         "sos sezamowy"
       ],
@@ -200,9 +200,9 @@
       "name": "Matcha Latte",
       "description": "Tradycyjna Matcha latte z dodatkiem mleka migda�owego i wiorkow kokosowych.",
       "ingredients": [
-        "mleko migda�owe",
+        "mleko migdalowe",
         "woda",
-        "wi�rki kokosowe",
+        "wiorki kokosowe",
         "matcha"
       ],
       "alergens": [
@@ -213,7 +213,7 @@
       "time": 10
     },
     {
-      "name": "Rozgrzewaj�ca herbata",
+      "name": "Rozgrzewajaca herbata",
       "description": "Czerwona herbata z dodatkiem imbiru, miodu i przypraw korzennych. Wspaniale rozwiazanie na zimowe wieczory.",
       "ingredients": [
         "czerwona herbata ceylon",
