@@ -1,9 +1,10 @@
 #pragma once
 #include "Dish.h"
-class CartProduct : Dish
+class CartProduct
 {
 private:
 	int quantity;
+	Dish dish;
 public:
 	CartProduct(Dish _dish, int _quantity);
 	~CartProduct();
