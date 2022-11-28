@@ -1,6 +1,7 @@
 #include "CartProduct.h"
 #include "Dish.h"
 
+// Constructor
 CartProduct::CartProduct(Dish _dish, int _quantity)
 {
 	this->quantity = _quantity;
@@ -9,10 +10,10 @@ CartProduct::CartProduct(Dish _dish, int _quantity)
 	this->time = _dish.readDishTime();
 }
 
-CartProduct::~CartProduct()
-{
-}
+// Destructor
+CartProduct::~CartProduct() {}
 
+// Reading methods
 std::string CartProduct::readProductName()
 {
 	return std::string(this->name);

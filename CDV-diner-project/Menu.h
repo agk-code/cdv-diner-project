@@ -1,17 +1,19 @@
 #pragma once
-#include <vector>
+#include "ProductsList.h"
 #include "Category.h"
+
+#include <string>
+
 class Menu
 {
 private:
-	int choose;
-	std::vector<Category> list;
-	void initVaribles();
-	void changeChoose(int choose);
+	char choose;
+	void setName(std::string* name);
+	void categoryMenu(ProductsList productList);
+	void dishesMenu(Category category);
 public:
-	void showMenu();
-	void addCategory(Category cat);
-
 	Menu();
 	~Menu();
+	void initMenu(std::string *name, ProductsList productList);
 };
+
