@@ -1,233 +1,243 @@
-{
-  "soups": [
-    {
-      "name": "Hamon juice soup",
-      "description": "Czernina to tradycyjne danie kuchni polskiej. Powali Was na kolana!",
-      "ingredients": [
-        "krew z kaczki",
-        "woda",
-        "sol",
-        "energia hamonu"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza"
-      ],
-      "price": 13.99,
-      "time": 40
-    },
-    {
-      "name": "13s surprise",
-      "description": "Zupa szczawiowa z dodatkiem 13 unikatowych skladnikow, ktore zaskocza Was nietuzinkowa mieszanka smakow.",
-      "ingredients": [
-        "szczaw",
-        "woda",
-        "sol",
-        "13 tajemniczych skladnikow"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza",
-        "orzechy",
-        "jaja",
-        "mleko",
-        "soja",
-        "ryby",
-        "mieczaki"
-      ],
-      "price": 14.99
-    },
-    {
-      "name": "Platinum star",
-      "description": "Niezrownana slodka zupa jagodowa z dodatkiem barwnikow i jadalnego brokatu. Zapewnia idealna dzienna dawke mikroplastiku.",
-      "ingredients": [
-        "woda",
-        "sol",
-        "barwniki",
-        "brokat",
-        "jagody"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza",
-        "jaja",
-        "mleko",
-        "soja"
-      ],
-      "price": 11.99,
-      "time": 20
-    }
-  ],
-
-  "main": [
-    {
-      "name": "Silver rapier",
-      "description": "Szaszlyk wieprzowy na srebryn rapierze z dodatkiem papryki i cebuli. Idealny do zjedzenia w trakcie walki.",
-      "ingredients": [
-        "wieprzowina",
-        "cebula",
-        "papryka",
-        "sol",
-        "pieprz"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza",
-        "orzechy",
-        "soja"
-      ],
-      "price": 22.99,
-      "time": 30
-    },
-    {
-      "name": "Koszmar bota telemarketera",
-      "description": "Danie niezrownane, sklaniajace do refleksji, nasycone smakiem i aromatami. Codziennie szef kuchni improwizuje, wiec nie wiadomo, co bedzie na stole.",
-      "ingredients": [
-        "tajemnicze skladniki"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza",
-        "orzechy",
-        "jaja",
-        "mleko",
-        "soja",
-        "ryby",
-        "mieczaki"
-      ],
-      "price": 25.99,
-      "time": 60
-    },
-    {
-      "name": "Red Magician's plate",
-      "description": "Talerz wspanialosci. Weganska mieszanka pikantnych warzyw z dodatkiem tofu i soi. Idealna opcja dla milosnikow palacych smakow.",
-      "ingredients": [
-        "pestki z dyni",
-        "papryka",
-        "pomidor",
-        "brokul",
-        "soja",
-        "tofu wedzone",
-        "sol",
-        "pieprz",
-        "autorska mieszanka pikantnych przypraw"
-      ],
-      "alergens": [
-        "gluten",
-        "orzechy",
-        "soja"
-      ],
-      "price": 23.99,
-      "time": 30
-    }
-  ],
-
-  "starters": [
-    {
-      "name": "Sajgonki po polsku",
-      "description": "Przystawka dla smakoszy kuchni polskiej. Sajgonki z dodatkiem miesa schabowego, ziemniakow i surowki. Idealne na poczatek niedzielnego obiadu.",
-      "ingredients": [
-        "mieso schabowe",
-        "cienkie ciasto pszenne",
-        "ziemniaki",
-        "surowka",
-        "sol",
-        "pieprz"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza",
-        "orzechy",
-        "jaja",
-        "mleko",
-        "soja"
-      ],
-      "price": 12.99,
-      "time": 20
-    },
-    {
-      "name": "Krewetki slony karmel",
-      "description": "Zaskakujaco wciagajaca kompozycja smakow. Krewetki z dodatkiem slonego karmelu i pikantnej papryki.",
-      "ingredients": [
-        "krewetki krolewskie",
-        "sol",
-        "karmel",
-        "ostra papryka",
-        "pieprz"
-      ],
-      "price": 15.99,
-      "time": 20
-    },
-    {
-      "name": "Gomaae",
-      "description": "Klasyczna japonska przystawka. Szpinak w sosie sezamowym z dodatkiem orzechow.",
-      "ingredients": [
-        "szpinak",
-        "orzechy",
-        "sol",
-        "pieprz",
-        "sos sezamowy"
-      ],
-      "alergens": [
-        "gluten",
-        "laktoza",
-        "orzechy",
-        "jaja",
-        "mleko",
-        "soja"
-      ],
-      "price": 11.99,
-      "time": 10
-    }
-  ],
-
-  "drinks": [
-    {
-      "name": "Coca-Cola",
-      "description": "Klasyczna cola z dodatkiem cukru i kofeiny.",
-      "ingredients": [
-        "woda",
-        "cukier",
-        "kofeina"
-      ],
-      "alergens": [
-        "brak"
-      ],
-      "price": 4.99,
-      "time": 0
-    },
-    {
-      "name": "Matcha Latte",
-      "description": "Tradycyjna Matcha latte z dodatkiem mleka migda�owego i wiorkow kokosowych.",
-      "ingredients": [
-        "mleko migdalowe",
-        "woda",
-        "wiorki kokosowe",
-        "matcha"
-      ],
-      "alergens": [
-        "orzechy",
-        "gluten"
-      ],
-      "price": 10.99,
-      "time": 10
-    },
-    {
-      "name": "Rozgrzewajaca herbata",
-      "description": "Czerwona herbata z dodatkiem imbiru, miodu i przypraw korzennych. Wspaniale rozwiazanie na zimowe wieczory.",
-      "ingredients": [
-        "czerwona herbata ceylon",
-        "imbir",
-        "miod",
-        "cynamon",
-        "ziarna gozdzikow",
-        "ziarna kardamonu"
-      ],
-      "alergens": [
-        "brak"
-      ],
-      "price": 8.99,
-      "time": 10
-    }
-  ]
-}
+[
+  {
+    "categoryName": "soups",
+    "categoryValues": [
+      {
+        "name": "Hamon juice soup",
+        "description": "Czernina to tradycyjne danie kuchni polskiej. Powali Was na kolana!",
+        "ingredients": [
+          "krew z kaczki",
+          "woda",
+          "sol",
+          "energia hamonu"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza"
+        ],
+        "price": 13.99,
+        "time": 40
+      },
+      {
+        "name": "13s surprise",
+        "description": "Zupa szczawiowa z dodatkiem 13 unikatowych skladnikow, ktore zaskocza Was nietuzinkowa mieszanka smakow.",
+        "ingredients": [
+          "szczaw",
+          "woda",
+          "sol",
+          "13 tajemniczych skladnikow"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza",
+          "orzechy",
+          "jaja",
+          "mleko",
+          "soja",
+          "ryby",
+          "mieczaki"
+        ],
+        "price": 14.99,
+        "time": 40
+      },
+      {
+        "name": "Platinum star",
+        "description": "Niezrownana slodka zupa jagodowa z dodatkiem barwnikow i jadalnego brokatu. Zapewnia idealna dzienna dawke mikroplastiku.",
+        "ingredients": [
+          "woda",
+          "sol",
+          "barwniki",
+          "brokat",
+          "jagody"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza",
+          "jaja",
+          "mleko",
+          "soja"
+        ],
+        "price": 11.99,
+        "time": 20
+      }
+    ]
+  },
+  {
+    "categoryName": "mainDishes",
+    "categoryValues": [
+      {
+        "name": "Silver rapier",
+        "description": "Szaszlyk wieprzowy na srebryn rapierze z dodatkiem papryki i cebuli. Idealny do zjedzenia w trakcie walki.",
+        "ingredients": [
+          "wieprzowina",
+          "cebula",
+          "papryka",
+          "sol",
+          "pieprz"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza",
+          "orzechy",
+          "soja"
+        ],
+        "price": 22.99,
+        "time": 30
+      },
+      {
+        "name": "Koszmar bota telemarketera",
+        "description": "Danie niezrownane, sklaniajace do refleksji, nasycone smakiem i aromatami. Codziennie szef kuchni improwizuje, wiec nie wiadomo, co bedzie na stole.",
+        "ingredients": [
+          "tajemnicze skladniki"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza",
+          "orzechy",
+          "jaja",
+          "mleko",
+          "soja",
+          "ryby",
+          "mieczaki"
+        ],
+        "price": 25.99,
+        "time": 60
+      },
+      {
+        "name": "Red Magician's plate",
+        "description": "Talerz wspanialosci. Weganska mieszanka pikantnych warzyw z dodatkiem tofu i soi. Idealna opcja dla milosnikow palacych smakow.",
+        "ingredients": [
+          "pestki z dyni",
+          "papryka",
+          "pomidor",
+          "brokul",
+          "soja",
+          "tofu wedzone",
+          "sol",
+          "pieprz",
+          "autorska mieszanka pikantnych przypraw"
+        ],
+        "alergens": [
+          "gluten",
+          "orzechy",
+          "soja"
+        ],
+        "price": 23.99,
+        "time": 30
+      }
+    ]
+  },
+  {
+    "categoryName": "starters",
+    "categoryValues": [
+      {
+        "name": "Sajgonki po polsku",
+        "description": "Przystawka dla smakoszy kuchni polskiej. Sajgonki z dodatkiem miesa schabowego, ziemniakow i surowki. Idealne na poczatek niedzielnego obiadu.",
+        "ingredients": [
+          "mieso schabowe",
+          "cienkie ciasto pszenne",
+          "ziemniaki",
+          "surowka",
+          "sol",
+          "pieprz"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza",
+          "orzechy",
+          "jaja",
+          "mleko",
+          "soja"
+        ],
+        "price": 12.99,
+        "time": 20
+      },
+      {
+        "name": "Krewetki slony karmel",
+        "description": "Zaskakujaco wciagajaca kompozycja smakow. Krewetki z dodatkiem slonego karmelu i pikantnej papryki.",
+        "ingredients": [
+          "krewetki krolewskie",
+          "sol",
+          "karmel",
+          "ostra papryka",
+          "pieprz"
+        ],
+        "price": 15.99,
+        "time": 20
+      },
+      {
+        "name": "Gomaae",
+        "description": "Klasyczna japonska przystawka. Szpinak w sosie sezamowym z dodatkiem orzechow.",
+        "ingredients": [
+          "szpinak",
+          "orzechy",
+          "sol",
+          "pieprz",
+          "sos sezamowy"
+        ],
+        "alergens": [
+          "gluten",
+          "laktoza",
+          "orzechy",
+          "jaja",
+          "mleko",
+          "soja"
+        ],
+        "price": 11.99,
+        "time": 10
+      }
+    ]
+  },
+  {
+    "categoryName": "drinks",
+    "categoryValues": [
+      {
+        "name": "Coca-Cola",
+        "description": "Klasyczna cola z dodatkiem cukru i kofeiny.",
+        "ingredients": [
+          "woda",
+          "cukier",
+          "kofeina"
+        ],
+        "alergens": [
+          "brak"
+        ],
+        "price": 4.99,
+        "time": 0
+      },
+      {
+        "name": "Matcha Latte",
+        "description": "Tradycyjna Matcha latte z dodatkiem mleka migda�owego i wiorkow kokosowych.",
+        "ingredients": [
+          "mleko migdalowe",
+          "woda",
+          "wiorki kokosowe",
+          "matcha"
+        ],
+        "alergens": [
+          "orzechy",
+          "gluten"
+        ],
+        "price": 10.99,
+        "time": 10
+      },
+      {
+        "name": "Rozgrzewajaca herbata",
+        "description": "Czerwona herbata z dodatkiem imbiru, miodu i przypraw korzennych. Wspaniale rozwiazanie na zimowe wieczory.",
+        "ingredients": [
+          "czerwona herbata ceylon",
+          "imbir",
+          "miod",
+          "cynamon",
+          "ziarna gozdzikow",
+          "ziarna kardamonu"
+        ],
+        "alergens": [
+          "brak"
+        ],
+        "price": 8.99,
+        "time": 10
+      }
+    ]
+  }
+]
