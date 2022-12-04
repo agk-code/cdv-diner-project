@@ -1,53 +1,41 @@
 ﻿#include <iostream>
 #include <vector>
 
-#include "Menu.h"
+#include "ProductsList.h"
 #include "Category.h"
 #include "Dish.h"
 #include "Cart.h"
 #include "CartProduct.h"
+#include "Menu.h"
 
 using namespace std;
 
+// Global varibles
 string name = "";
 bool delivery = false;
 
-void createMenu(Menu *menu) {
+// Test function for create products list
+void createProductsList(ProductsList *productsList) {
 	Dish dish1("Zupa", "Opis", "1.Woda\n 2.Makaron\n", "1.Makraon\n", 13.37, 100000);
 	Dish dish2;
-	cout << dish1.readDishName() << endl;
-	cout << dish2.readDishName() << endl;
 	vector<Dish> list { dish1, dish2 };
 	Category zupy("Zupy", list);
-	menu->addCategory(zupy);
-
+	productsList->addCategory(zupy);
 }
 
-void setName() {
-	cout << "Podaj imie: ";
-	cin >> name;
-}
-
-void createCart(Cart *cart) {
-	//Test function
-}
+// Test function for create cart
+void createCart(Cart *cart) {}
 
 int main()
 {
-		
-	Menu menu;
+	// Create basic objects
+	ProductsList productsList;
 	Cart cart;
+	Menu menu;
 
-	setName();
-
-	createMenu(&menu);
-
+	// Initializing basic objects
+	createProductsList(&productsList);
 	createCart(&cart);
-
-	menu.showMenu();
-
-	for (int i = 0; i < cart.readCartList().size(); i++) {
-		cout << cart.readCartList()[i].readProductName() << endl;
-	}
+	menu.initMenu(&name, productsList);
 
 }

@@ -2,14 +2,14 @@
 #include <string>
 class Dish
 {
-protected:
-	std::string name;
+private:
 	std::string description;
 	std::string ingredients;
 	std::string alergens;
+protected:
+	std::string name;
 	double price;
 	int time;
-
 public:
 	Dish(
 		std::string _name = "Testowy produkt",
@@ -24,4 +24,3 @@ public:
 	double readDishPrice();
 	int readDishTime();
 };
-

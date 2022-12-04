@@ -1,5 +1,6 @@
 #include "Dish.h"
 
+// Constructor
 Dish::Dish(std::string _name, std::string _description, std::string _ingredients, std::string _alergens, double _price, int _time)
 {
 	this->name = _name;
@@ -10,10 +11,10 @@ Dish::Dish(std::string _name, std::string _description, std::string _ingredients
 	this->time = _time;
 }
 
-Dish::~Dish()
-{
-}
+// Destructor
+Dish::~Dish() {}
 
+// Reading methods
 std::string Dish::readDishName() {
 	return std::string(this->name);
 }
