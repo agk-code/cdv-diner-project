@@ -4,10 +4,8 @@
 // Constructor
 CartProduct::CartProduct(Dish _dish, int _quantity)
 {
+	this->dish = _dish;
 	this->quantity = _quantity;
-	this->name = _dish.readDishName();
-	this->price = _dish.readDishPrice();
-	this->time = _dish.readDishTime();
 }
 
 // Destructor
@@ -16,20 +14,25 @@ CartProduct::~CartProduct() {}
 // Reading methods
 std::string CartProduct::readProductName()
 {
-	return std::string(this->name);
+	return std::string(this->dish.readDishName());
 }
 
 double CartProduct::readProductPrice()
 {
-	return this->price;
+	return this->dish.readDishPrice();
 }
 
 int CartProduct::readProductTime()
 {
-	return this->time;
+	return this->dish.readDishTime();
 }
 
 int CartProduct::readProductQuantity()
 {
 	return this->quantity;
+}
+
+void CartProduct::incrementProductQuantity()
+{
+	this->quantity += 1;
 }

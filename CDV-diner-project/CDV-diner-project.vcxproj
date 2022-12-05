@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bill.cpp" />
     <ClCompile Include="Cart.cpp" />
     <ClCompile Include="CartProduct.cpp" />
     <ClCompile Include="Category.cpp" />
@@ -136,6 +137,7 @@
     <ClCompile Include="ProductsList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bill.h" />
     <ClInclude Include="Cart.h" />
     <ClInclude Include="CartProduct.h" />
     <ClInclude Include="Category.h" />
