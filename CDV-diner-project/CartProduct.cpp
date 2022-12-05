@@ -31,3 +31,8 @@ int CartProduct::readProductQuantity()
 {
 	return this->quantity;
 }
+
+void CartProduct::incrementProductQuantity()
+{
+	this->quantity += 1;
+}

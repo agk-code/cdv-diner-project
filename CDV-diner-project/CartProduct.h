@@ -12,4 +12,5 @@ public:
 	double readProductPrice();
 	int readProductTime();
 	int readProductQuantity();
+	void incrementProductQuantity();
 };

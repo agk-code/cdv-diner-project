@@ -4,6 +4,7 @@
 #include "ProductsList.h"
 #include "Category.h"
 #include "Dish.h"
+// TODO rename Cart class to Basket
 #include "Cart.h"
 #include "CartProduct.h"
 #include "Menu.h"
@@ -23,19 +24,15 @@ void createProductsList(ProductsList *productsList) {
 	productsList->addCategory(zupy);
 }
 
-// Test function for create cart
-void createCart(Cart *cart) {}
-
 int main()
 {
 	// Create basic objects
 	ProductsList productsList;
 	Cart cart;
-	Menu menu;
+	Menu menu(&cart);
 
 	// Initializing basic objects
 	createProductsList(&productsList);
-	createCart(&cart);
 	menu.initMenu(&name, productsList);
 
 }
