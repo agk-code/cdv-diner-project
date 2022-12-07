@@ -20,9 +20,14 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string *name, ProductsList productList)
+void Menu::initMenu(string *name, ProductsList productList, bool *delivery)
 {
 	this->setName(name);
+	this->setDelivery(delivery);
+	if (delivery) {
+		this->deliveryTime();
+	}
+
 	while (true) {
 		this->categoryMenu(productList);
 		cout << "q - Wyjdz\n";
@@ -51,6 +56,38 @@ void Menu::setName(std::string *name)
 	cout << "Podaj imie: ";
 	cin >> *name;
 	system("cls");
+}
+
+void Menu::setDelivery(bool* delivery) {
+	int answer;
+	cout << "Jedzenie na miejscu (0) czy dostawa (1)? ";
+	cin >> answer;
+	while (true) {
+		if (answer == 0) {
+			*delivery = false;
+			break;
+		}
+		if (answer == 1) {
+			*delivery = true;
+			break;
+		}
+		system("cls");
+		cout << "Podaj prawid³ow¹ wartoœæ";
+	}
+}
+
+string Menu::deliveryTime() {
+//	const time_t currentTime = std::time(nullptr);
+//	const std::tm calendar_time = *std::localtime(std::addressof(currentTime));
+//	const int currentDay = calendar_time.tm_mday;
+//	const int currentMonth = calendar_time.tm_mon;
+//	const int currentYear = calendar_time.tm_year + 1900;
+
+//	cout << "Podaj godzinê dostawy: ";
+//	std::string deliveryTimeInput;
+//	cin >> deliveryTimeInput; 
+
+	return "";
 }
 
 // Render category menu

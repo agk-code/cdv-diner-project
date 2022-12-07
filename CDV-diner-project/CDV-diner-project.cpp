@@ -33,6 +33,6 @@ int main()
 
 	// Initializing basic objects
 	createProductsList(&productsList);
-	menu.initMenu(&name, productsList);
+	menu.initMenu(&name, productsList, &delivery);
 
 }
