@@ -14,7 +14,6 @@ private:
 	Cart cart;
 	void setName(std::string* name);
 	void setDelivery(bool* delivery);
-	std::string deliveryTime();
 	void categoryMenu(ProductsList productList);
 	void dishesMenu(Category category);
 	void basketMenu();

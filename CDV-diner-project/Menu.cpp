@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <chrono>
 
 using namespace std;
 
@@ -20,12 +21,12 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string *name, ProductsList productList, bool *delivery)
+void Menu::initMenu(string *name, ProductsList productList, bool *delivery, std::string *deliveryTimeOutput)
 {
 	this->setName(name);
 	this->setDelivery(delivery);
 	if (delivery) {
-		this->deliveryTime();
+		this->deliveryTime(deliveryTimeOutput);
 	}
 
 	while (true) {
@@ -61,8 +62,9 @@ void Menu::setName(std::string *name)
 void Menu::setDelivery(bool* delivery) {
 	int answer;
 	cout << "Jedzenie na miejscu (0) czy dostawa (1)? ";
-	cin >> answer;
 	while (true) {
+		cin >> answer;
+
 		if (answer == 0) {
 			*delivery = false;
 			break;
@@ -72,22 +74,16 @@ void Menu::setDelivery(bool* delivery) {
 			break;
 		}
 		system("cls");
-		cout << "Podaj prawid³ow¹ wartoœæ";
+		cout << "Podaj prawidlowa wartosc";
+
 	}
 }
 
-string Menu::deliveryTime() {
-//	const time_t currentTime = std::time(nullptr);
-//	const std::tm calendar_time = *std::localtime(std::addressof(currentTime));
-//	const int currentDay = calendar_time.tm_mday;
-//	const int currentMonth = calendar_time.tm_mon;
-//	const int currentYear = calendar_time.tm_year + 1900;
-
-//	cout << "Podaj godzinê dostawy: ";
-//	std::string deliveryTimeInput;
-//	cin >> deliveryTimeInput; 
-
-	return "";
+void Menu::deliveryTime(std::string *deliveryTimeOutput) {
+	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+	std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+	std::tm now_tm = *std::localtime(&now_c);
+	cout << now_c;
 }
 
 // Render category menu
