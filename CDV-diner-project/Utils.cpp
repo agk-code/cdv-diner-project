@@ -1,7 +1,13 @@
 
+#include <fstream>
+#include "json.hpp"
+
 #include "Utils.h"
+#include "Dish.h"
+#include "Category.h"
 
 
+using json = nlohmann::json;
 
 
 using namespace Utils;
@@ -49,4 +55,42 @@ int Utils::PrepTime(std::vector<CartProduct> product_list)
 
     return max;
     
+}
+
+void Utils::createCategoryAndDishesVectors(ProductsList* productsList){
+	
+    
+    //Create a json object from json file
+    const std::string dishesJsonFile = "Dishes.json";
+    std::ifstream dishesMenu(dishesJsonFile);
+    json dishesJson;
+    dishesMenu >> dishesJson;
+    dishesMenu.close();
+	
+	
+    //Categories
+    for (int i = 0; i < dishesJson.size(); i++) {
+
+        std::vector<Dish> currentDishesVector;
+        json currentCategoryValuesJson = dishesJson[i]["categoryValues"];
+        
+        
+        //Dishes
+        for (int j = 0; j < currentCategoryValuesJson.size(); j++) {
+
+          
+            currentDishesVector.push_back(
+                Dish(
+                    currentCategoryValuesJson[j]["name"],
+                    currentCategoryValuesJson[j]["description"],
+                    currentCategoryValuesJson[j]["ingredients"],
+                    currentCategoryValuesJson[j]["alergens"],
+                    currentCategoryValuesJson[j]["price"],
+                    currentCategoryValuesJson[j]["time"]
+				)
+			);
+		}
+		
+		productsList->addCategory(Category(dishesJson[i]["categoryName"], currentDishesVector));
+    }
 }
