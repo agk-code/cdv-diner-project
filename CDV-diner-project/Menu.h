@@ -14,12 +14,13 @@ private:
 	Cart cart;
 	void setName(std::string* name);
 	void setDelivery(bool* delivery);
+	void deliveryChosen(std::string* deliveryTime);
 	void categoryMenu(ProductsList productList);
 	void dishesMenu(Category category);
 	void basketMenu();
 public:
 	Menu(Cart *_cart);
 	~Menu();
-	void initMenu(std::string* name, ProductsList productList, bool* delivery);
+	void initMenu(std::string* name, ProductsList productList, bool* delivery, std::string *deliveryTime);
 };
 

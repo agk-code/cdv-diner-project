@@ -4,7 +4,9 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include <chrono>
+#include <ctime>
+#include <cmath>
+#include <limits>
 
 using namespace std;
 
@@ -21,12 +23,12 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string *name, ProductsList productList, bool *delivery, std::string *deliveryTimeOutput)
+void Menu::initMenu(string *name, ProductsList productList, bool *delivery, std::string *deliveryTime)
 {
 	this->setName(name);
 	this->setDelivery(delivery);
 	if (delivery) {
-		this->deliveryTime(deliveryTimeOutput);
+		this->deliveryChosen(deliveryTime);
 	}
 
 	while (true) {
@@ -64,7 +66,6 @@ void Menu::setDelivery(bool* delivery) {
 	cout << "Jedzenie na miejscu (0) czy dostawa (1)? ";
 	while (true) {
 		cin >> answer;
-
 		if (answer == 0) {
 			*delivery = false;
 			break;
@@ -79,11 +80,35 @@ void Menu::setDelivery(bool* delivery) {
 	}
 }
 
-void Menu::deliveryTime(std::string *deliveryTimeOutput) {
-	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-	std::time_t now_c = std::chrono::system_clock::to_time_t(now);
-	std::tm now_tm = *std::localtime(&now_c);
-	cout << now_c;
+void Menu::deliveryChosen(std::string *deliveryTime) {
+	time_t currentTime;
+	time(&currentTime);
+	struct tm* date;
+	date = localtime(&currentTime);
+	int year, month, day, hour, minutes;
+	day = date->tm_mday;
+	month = date->tm_mon + 1;
+	year = date->tm_year + 1900;
+	hour = date->tm_hour;
+	minutes = date->tm_min;
+
+	const int maxHour = 23, maxMinutes = 60;
+	
+	int deliveryHour, deliveryMinutes;
+	char c;
+	cout << "Podaj godzine dostawy (HH:MM): ";
+	while (true) {
+	    cin >> deliveryHour >> c >> deliveryMinutes;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	    if((deliveryHour < maxHour && deliveryMinutes < maxMinutes) &&
+	       (hour < deliveryHour)){
+	        deliveryMinutes = round(deliveryMinutes/10) * 10;
+			*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " + 
+				to_string(deliveryHour) + c + to_string(deliveryMinutes);
+	        break;
+		}
+	}
 }
 
 // Render category menu
