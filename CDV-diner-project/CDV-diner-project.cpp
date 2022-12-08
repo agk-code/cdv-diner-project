@@ -14,6 +14,7 @@ using namespace std;
 // Global varibles
 string name = "";
 bool delivery = false;
+int tableNumber = 1;
 
 // Test function for create products list
 void createProductsList(ProductsList *productsList) {
@@ -33,6 +34,6 @@ int main()
 
 	// Initializing basic objects
 	createProductsList(&productsList);
-	menu.initMenu(&name, productsList);
+	menu.initMenu(&name, productsList, &tableNumber);
 
 }
