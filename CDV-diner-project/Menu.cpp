@@ -135,7 +135,7 @@ void Menu::deliveryChosen(std::string *deliveryTime) {
 	hour = timeInfo.tm_hour;
 	minutes = timeInfo.tm_min;
 
-	const int maxHour = 23, maxMinutes = 59;
+	const int maxHour = 23, maxMinutes = 60;
 	
 	int deliveryHour, deliveryMinutes;
 	char c;
@@ -150,16 +150,18 @@ void Menu::deliveryChosen(std::string *deliveryTime) {
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cin >> deliveryHour >> c >> deliveryMinutes;
 		}
-		if ((deliveryHour < maxHour && deliveryMinutes < maxMinutes) &&
-			(hour <= deliveryHour)) {
-			deliveryMinutes = (int)round(deliveryMinutes / 10) * 10;
-			*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " +
-				to_string(deliveryHour) + c + to_string(deliveryMinutes);
-			break;
-		}
-		else {
-			system("cls");
-			cout << "Podano nieprawidlowa date" << endl;
+		if (deliveryHour < maxHour && deliveryMinutes < maxMinutes) {
+			if (hour < deliveryHour - 1 || (hour == deliveryHour - 1 && minutes <= deliveryMinutes + 45) ||
+				(hour == deliveryHour && minutes <= deliveryMinutes - 15)) {
+				deliveryMinutes = (int)round(deliveryMinutes / 10) * 10;
+				*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " +
+					to_string(deliveryHour) + c + to_string(deliveryMinutes);
+				break;
+			}
+			else {
+				system("cls");
+				cout << "Podano nieprawidlowa wartosc" << endl;
+			}
 		}
 	}
 	
