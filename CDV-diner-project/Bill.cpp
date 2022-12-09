@@ -20,6 +20,7 @@ void Bill::createBill(Cart cart)
 	for (int i = 0; i < cart.readCartList().size(); i++) {
 		
 		plik
+			<< "Zamowienie w restauraji JoJo's Bizarre Diner" << endl
 			<< cart.readCartList()[i].readProductName()
 			<< "\t Cena:"
 			<< cart.readCartList()[i].readProductPrice()

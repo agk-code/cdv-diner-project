@@ -60,10 +60,10 @@ void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bo
 
 void Menu::showRestaurantData()
 {
-	cout << "Witaj w restauracji Czerowne Placki\n\n";
-	cout << "Najlepsze placki w calej galaktyce\n\n";
-	cout << "Ziemianska 182/4, Kolepka Nowej Nadzieji - Mars\n\n";
-	cout << "Aby zamowic nacisnij enter\n\n";
+	cout << "Witaj w restauracji JoJo's Bizarre Diner\n\n";
+	cout << "Najlepszy hamon w calej galaktyce\n";
+	cout << "Adres  ul.Ziemianska 182/4, 62-420 Kolebka Nowej Nadzieji - Mars\n\n";
+	cout << "Aby zamowic nacisnij enter\n";
 	system("pause");
 	system("cls");
 }
@@ -200,18 +200,31 @@ void Menu::dishesMenu(Category category)
 		//Checking if user choose is a number
 		int tempChose = ((int)this->chooseDish - 49);
 		if (tempChose >= 0 && ((int)this->chooseDish - 48) <= (int)category.readDishList().size()) {
-			//if (this->cart.readCartList().size() > 0) {
-			//	for (int i = 0; i < cart.readCartList().size(); i++) {
-			//		if (this->cart.readCartList()[i].readProductName() == category.readDishList()[tempChose].readDishName()) {
-			//			this->cart.readCartList()[i] = CartProduct(category.readDishList()[tempChose], this->cart.readCartList()[i].readProductQuantity() + 1);
-			//		}
-			//	}
-			//}
-			//else {
+			
+			//make products in cart add their quantity
+			
+			
+			if (this->cart.readCartList().size() > 0) {
+				for (int i = 0; i < cart.readCartList().size(); i++) {
+					if (this->cart.readCartList()[i].readProductName() == category.readDishList()[tempChose].readDishName()) {
+						this->cart.readCartList()[i].incrementProductQuantity();
+						break;
+					}
+					else {
+						CartProduct tempCartProduct(category.readDishList()[tempChose], 1);
+						this->cart.addProduct(tempCartProduct);
+						break;
+					}
+					
+				}
+				break;
+			}
+			
+			else {
 			CartProduct tempCartProduct(category.readDishList()[tempChose], 1);
 			this->cart.addProduct(tempCartProduct);
 			break;
-			//}
+			}
 		}
 		system("cls");
 	}
@@ -232,7 +245,7 @@ void Menu::basketMenu() {
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
-	cout << "czas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << endl;
+	cout << "czas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << " minut" << endl;
 	cout << "Koszt calkowity: " << this->cart.readCartPrice() << endl;
 	cout << "p - Przejdz do podsumowania\n";
 	cout << "Dowolny klawisz - powrot\n";

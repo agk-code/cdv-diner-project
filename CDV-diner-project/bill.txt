@@ -1,6 +1,3 @@
-Silver rapier	 Cena:22.99	 Ilosc:1
-Hamon juice soup	 Cena:13.99	 Ilosc:1
-Hamon juice soup	 Cena:13.99	 Ilosc:1
-13s surprise	 Cena:14.99	 Ilosc:1
-Gomaae	 Cena:11.99	 Ilosc:1
-Suma: 77.95
+Zamowienie w restauraji JoJo's Bizarre Diner
+Koszmar bota telemarketera	 Cena:25.99	 Ilosc:1
+Suma: 25.99
