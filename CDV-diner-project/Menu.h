@@ -12,7 +12,9 @@ private:
 	char chooseDish;
 	char chooseBasket;
 	Cart cart;
+	void showRestaurantData();
 	void setName(std::string* name);
+	void setTable(int* tableNumber);
 	void setDelivery(bool* delivery);
 	void deliveryChosen(std::string* deliveryTime);
 	void categoryMenu(ProductsList productList);
@@ -21,6 +23,6 @@ private:
 public:
 	Menu(Cart *_cart);
 	~Menu();
-	void initMenu(std::string* name, ProductsList productList, bool* delivery, std::string *deliveryTime);
+	void initMenu(std::string* name, ProductsList productList, int *tableNumber, bool* delivery, std::string *deliveryTime);
 };
 
