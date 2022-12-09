@@ -18,7 +18,7 @@ string name = "";
 bool delivery = false;
 int tableNumber = 1;
 string deliveryTime = "";
-
+string address = "";
 
 int main()
 {
@@ -29,5 +29,5 @@ int main()
 
 	// Initializing basic objects
   Utils::createCategoryAndDishesVectors(&productsList);
-	menu.initMenu(&name, productsList, &tableNumber, &delivery, &deliveryTime);
+	menu.initMenu(&name, productsList, &tableNumber, &delivery, &deliveryTime, &address);
 }
