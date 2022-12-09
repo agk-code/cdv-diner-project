@@ -114,9 +114,9 @@ void Menu::basketMenu() {
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
-	cout << "Czas potrzebny do przygotowania: " << Utils::PrepTime(this->cart.readCartList()) << endl;
+	cout << "czas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << endl;
 	cout << "Koszt calkowity: " << this->cart.readCartPrice() << endl;
-	cout << "p - potwierdz i drukuj paragon\n";
+	cout << "p - Przejdz do podsumowania\n";
 	cout << "Dowolny klawisz - powrot\n";
 	cout << "Wybor: ";
 	cin >> this->chooseBasket;
