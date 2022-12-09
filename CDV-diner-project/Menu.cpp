@@ -126,14 +126,14 @@ void Menu::setDelivery(bool* delivery) {
 void Menu::deliveryChosen(std::string *deliveryTime) {
 	time_t currentTime;
 	time(&currentTime);
-	struct tm* date;
-	date = localtime(&currentTime);
+	struct tm timeInfo;
+	localtime_s(&timeInfo, &currentTime);
 	int year, month, day, hour, minutes;
-	day = date->tm_mday;
-	month = date->tm_mon + 1;
-	year = date->tm_year + 1900;
-	hour = date->tm_hour;
-	minutes = date->tm_min;
+	day = timeInfo.tm_mday;
+	month = timeInfo.tm_mon + 1;
+	year = timeInfo.tm_year + 1900;
+	hour = timeInfo.tm_hour;
+	minutes = timeInfo.tm_min;
 
 	const int maxHour = 23, maxMinutes = 60;
 	
