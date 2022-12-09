@@ -9,6 +9,7 @@
 #include <ctime>
 #include <cmath>
 #include <limits>
+#include <regex>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bool *delivery, std::string *deliveryTime)
+void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bool *delivery, std::string *deliveryTime, std::string* address)
 {
 	this->showRestaurantData();
 	this->setName(name);
@@ -46,7 +47,7 @@ void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bo
 			exit(0);
 		}
 		if (this->chooseCategory == 'k') {
-			this->basketMenu();
+			this->basketMenu(address);
 		}
 		else {
 			system("cls");
@@ -123,7 +124,34 @@ void Menu::setDelivery(bool* delivery) {
 	}
 }
 
-void Menu::deliveryChosen(std::string *deliveryTime) {
+void Menu::setAddress(string* address) {
+	string tempAddress;
+	regex address_regex("[A-Za-z]+\.[[:space:]][A-Za-z]+[[:space:]][0-9]+,[[:space:]][a-zA-Z]+,[[:space:]][0-9]{2}-[0-9]{3}");
+	system("cls");
+
+	getline(cin, tempAddress);
+
+	while (true) {
+		
+		cout << "Format danych: Adres: al. Wojenna 1, Warszawa, 00-123" << endl;
+		cout << "Podaj adres dostawy: ";
+
+		cin.ignore();
+		getline(cin, tempAddress);
+
+		if (regex_match(tempAddress, address_regex)) {
+			*address = tempAddress;
+			break;
+		}
+
+		system("cls");
+		cout << "Podano bledne dane" << endl;
+
+	}
+	
+}
+
+void Menu::deliveryChosen(string *deliveryTime) {
 	time_t currentTime;
 	time(&currentTime);
 	struct tm timeInfo;
@@ -217,7 +245,7 @@ void Menu::dishesMenu(Category category)
 	}
 }
 
-void Menu::basketMenu() {
+void Menu::basketMenu(std::string* address) {
 	system("cls");
 	cout << "Koszyk" << endl;
 	cout << "ID Nazwa Cena Czas Przygotowania Ilosc" << endl;
@@ -238,9 +266,11 @@ void Menu::basketMenu() {
 	cout << "Wybor: ";
 	cin >> this->chooseBasket;
 	if (this->chooseBasket == 'p') {
+		this->setAddress(address);
 		Bill bill;
 		bill.createBill(this->cart);
 		exit(0);
 	}
 	system("cls");
 }
+
