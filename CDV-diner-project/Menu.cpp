@@ -30,15 +30,15 @@ void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bo
 	this->showRestaurantData();
 	this->setName(name);
 	this->setDelivery(delivery);
-	if (delivery) {
+	if (*delivery) {
 		this->deliveryChosen(deliveryTime);
 	} else {
-    this->setTable(tableNumber);
-  }
+		this->setTable(tableNumber);
+	}
   
 	while (true) {
 		this->categoryMenu(productList);
-		cout << "q - Wyjdz\n";
+		cout << "\nq - Wyjdz\n";
 		cout << "k - Koszyk\n\n";
 		cout << "Wybor: ";
 		cin >> this->chooseCategory;
@@ -135,23 +135,35 @@ void Menu::deliveryChosen(std::string *deliveryTime) {
 	hour = timeInfo.tm_hour;
 	minutes = timeInfo.tm_min;
 
-	const int maxHour = 23, maxMinutes = 60;
+	const int maxHour = 23, maxMinutes = 59;
 	
 	int deliveryHour, deliveryMinutes;
 	char c;
-	cout << "Podaj godzine dostawy (HH:MM): ";
 	while (true) {
-	    cin >> deliveryHour >> c >> deliveryMinutes;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	    if((deliveryHour < maxHour && deliveryMinutes < maxMinutes) &&
-	       (hour < deliveryHour)){
-	        deliveryMinutes = round(deliveryMinutes/10) * 10;
-			*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " + 
+		cout << "Podaj godzine dostawy (HH:MM): ";
+		cin >> deliveryHour >> c >> deliveryMinutes;
+		while (!cin.good()) {
+			system("cls");
+			cout << "Podano nieprawidlowa date" << endl;
+			cout << "Podaj godzine dostawy (HH:MM): ";
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cin >> deliveryHour >> c >> deliveryMinutes;
+		}
+		if ((deliveryHour < maxHour && deliveryMinutes < maxMinutes) &&
+			(hour <= deliveryHour)) {
+			deliveryMinutes = (int)round(deliveryMinutes / 10) * 10;
+			*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " +
 				to_string(deliveryHour) + c + to_string(deliveryMinutes);
-	        break;
+			break;
+		}
+		else {
+			system("cls");
+			cout << "Podano nieprawidlowa date" << endl;
 		}
 	}
+	
+	system("cls");
 }
 
 // Render category menu
