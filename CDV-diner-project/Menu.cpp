@@ -6,6 +6,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
+#include <ctime>
+#include <cmath>
 #include <limits>
 
 using namespace std;
@@ -23,11 +25,17 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string *name, ProductsList productList, int *tableNumber)
+void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bool *delivery, std::string *deliveryTime)
 {
 	this->showRestaurantData();
 	this->setName(name);
-	this->setTable(tableNumber);
+	this->setDelivery(delivery);
+	if (delivery) {
+		this->deliveryChosen(deliveryTime);
+	} else {
+    this->setTable(tableNumber);
+  }
+  
 	while (true) {
 		this->categoryMenu(productList);
 		cout << "q - Wyjdz\n";
@@ -68,8 +76,6 @@ void Menu::setName(std::string *name)
 	system("cls");
 }
 
-
-// Ja chce za to 5,5 albo wale przez okno
 void Menu::setTable(int* tableNumber)
 {
 	int tempInput;
@@ -96,6 +102,56 @@ void Menu::setTable(int* tableNumber)
 	}
 	*tableNumber = tempInput;
 	system("cls");
+}
+
+void Menu::setDelivery(bool* delivery) {
+	int answer;
+	cout << "Jedzenie na miejscu (0) czy dostawa (1)? ";
+	while (true) {
+		cin >> answer;
+		if (answer == 0) {
+			*delivery = false;
+			break;
+		}
+		if (answer == 1) {
+			*delivery = true;
+			break;
+		}
+		system("cls");
+		cout << "Podaj prawidlowa wartosc";
+
+	}
+}
+
+void Menu::deliveryChosen(std::string *deliveryTime) {
+	time_t currentTime;
+	time(&currentTime);
+	struct tm* date;
+	date = localtime(&currentTime);
+	int year, month, day, hour, minutes;
+	day = date->tm_mday;
+	month = date->tm_mon + 1;
+	year = date->tm_year + 1900;
+	hour = date->tm_hour;
+	minutes = date->tm_min;
+
+	const int maxHour = 23, maxMinutes = 60;
+	
+	int deliveryHour, deliveryMinutes;
+	char c;
+	cout << "Podaj godzine dostawy (HH:MM): ";
+	while (true) {
+	    cin >> deliveryHour >> c >> deliveryMinutes;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	    if((deliveryHour < maxHour && deliveryMinutes < maxMinutes) &&
+	       (hour < deliveryHour)){
+	        deliveryMinutes = round(deliveryMinutes/10) * 10;
+			*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " + 
+				to_string(deliveryHour) + c + to_string(deliveryMinutes);
+	        break;
+		}
+	}
 }
 
 // Render category menu
