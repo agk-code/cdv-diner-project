@@ -135,7 +135,7 @@ void Menu::deliveryChosen(std::string *deliveryTime) {
 	hour = date->tm_hour;
 	minutes = date->tm_min;
 
-	const int maxHour = 23, maxMinutes = 60;
+	const int maxHour = 24, maxMinutes = 60, leadTime = 20;
 	
 	int deliveryHour, deliveryMinutes;
 	char c;
@@ -146,7 +146,11 @@ void Menu::deliveryChosen(std::string *deliveryTime) {
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	    if((deliveryHour < maxHour && deliveryMinutes < maxMinutes) &&
 	       (hour < deliveryHour)){
-	        deliveryMinutes = round(deliveryMinutes/10) * 10;
+	        deliveryMinutes = round(deliveryMinutes/10) * 10 + leadTime;
+			if (deliveryMinutes >= 60) {
+				deliveryMinutes -= 60;
+				hour += 1;
+			}
 			*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " + 
 				to_string(deliveryHour) + c + to_string(deliveryMinutes);
 	        break;
