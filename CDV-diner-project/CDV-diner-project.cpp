@@ -16,6 +16,8 @@ using namespace std;
 // Global variables
 string name = "";
 bool delivery = false;
+int tableNumber = 1;
+string deliveryTime = "";
 
 
 int main()
@@ -26,7 +28,6 @@ int main()
 	Menu menu(&cart);
 
 	// Initializing basic objects
-	Utils::createCategoryAndDishesVectors(&productsList);
-	menu.initMenu(&name, productsList);
-
+  Utils::createCategoryAndDishesVectors(&productsList);
+	menu.initMenu(&name, productsList, &tableNumber, &delivery, &deliveryTime);
 }
