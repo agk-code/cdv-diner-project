@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include "CartProduct.h";
 #include "Bill.h"
+#include "Utils.h"
 
 #include <iostream>
 #include <stdlib.h>
@@ -171,6 +172,7 @@ void Menu::basketMenu() {
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
+	cout << "czas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << endl;
 	cout << "p - Przejdz do podsumowania\n";
 	cout << "Dowolny klawisz - powrot\n";
 	cout << "Wybor: ";

@@ -135,6 +135,7 @@
     <ClCompile Include="Dish.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="ProductsList.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bill.h" />
@@ -142,6 +143,8 @@
     <ClInclude Include="CartProduct.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="Dish.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="ProductsList.h" />
   </ItemGroup>
