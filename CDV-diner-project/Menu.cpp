@@ -57,7 +57,7 @@ void Menu::setName(std::string *name)
 // Render category menu
 void Menu::categoryMenu(ProductsList productList)
 {
-	cout << "Menu Kategorii" << endl;
+	cout << "Wybierz kategorie dania" << endl;
 	for (int i = 0; i < productList.readProductList().size(); i++) {
 		cout << (i + 1) << ". " << productList.readProductList()[i].readCategoryName() << endl;
 	}
@@ -114,8 +114,9 @@ void Menu::basketMenu() {
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
-	cout << "czas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << endl;
-	cout << "p - Przejdz do podsumowania\n";
+	cout << "Czas potrzebny do przygotowania: " << Utils::PrepTime(this->cart.readCartList()) << endl;
+	cout << "Koszt calkowity: " << this->cart.readCartPrice() << endl;
+	cout << "p - potwierdz i drukuj paragon\n";
 	cout << "Dowolny klawisz - powrot\n";
 	cout << "Wybor: ";
 	cin >> this->chooseBasket;
