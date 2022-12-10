@@ -19,6 +19,14 @@ std::string Dish::readDishName() {
 	return std::string(this->name);
 }
 
+std::string Dish::readDishAlergens() {
+	return std::string(this->alergens);
+}
+
+std::string Dish::readDishDescription() {
+	return std::string(this->description);
+}
+
 double Dish::readDishPrice()
 {
 	return this->price;
@@ -28,3 +36,5 @@ int Dish::readDishTime()
 {
 	return this->time;
 }
+
+

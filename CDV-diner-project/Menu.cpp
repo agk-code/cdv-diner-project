@@ -107,19 +107,24 @@ void Menu::setTable(int* tableNumber)
 
 void Menu::setDelivery(bool* delivery) {
 	int answer;
-	cout << "Jedzenie na miejscu (0) czy dostawa (1)? ";
 	while (true) {
+		
+		cout << "Jedzenie na miejscu (0) czy dostawa (1)? ";
 		cin >> answer;
 		if (answer == 0) {
 			*delivery = false;
+			system("cls");
 			break;
 		}
 		if (answer == 1) {
 			*delivery = true;
+			system("cls");
 			break;
 		}
 		system("cls");
-		cout << "Podaj prawidlowa wartosc";
+		cout << "Podaj prawidlowa wartosc" << endl;
+		system("pause");
+		system("cls");
 
 	}
 }
@@ -168,12 +173,13 @@ void Menu::deliveryChosen(string *deliveryTime) {
 	int deliveryHour, deliveryMinutes;
 	char c;
 	while (true) {
-		cout << "Podaj godzine dostawy (HH:MM): ";
+		cout << "Zamowienia przyjmujemy do godziny 22:59" << endl << endl;
+		cout << "Podaj godzine dostawy (HH), wcisnij enter, a pozniej podaj minuty (MM): ";
 		cin >> deliveryHour >> c >> deliveryMinutes;
 		while (!cin.good()) {
 			system("cls");
 			cout << "Podano nieprawidlowa date" << endl;
-			cout << "Podaj godzine dostawy (HH:MM): ";
+			cout << "Podaj najpierw godzine dostawy (HH), wcisnij enter, a pozniej podaj minuty (MM): ";
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cin >> deliveryHour >> c >> deliveryMinutes;
@@ -209,22 +215,24 @@ void Menu::dishesMenu(Category category)
 	while (true) {
 		cout << "Kategoria " << category.readCategoryName() << endl;
 		//TODO Do it better
-		cout << "ID Nazwa Cena Czas Przygotowania" << endl;
 		for (int i = 0; i < category.readDishList().size(); i++) {
 			cout << (i + 1)
 				<< ". "
 				<< category.readDishList()[i].readDishName()
-				<< "  "
+				<< "  Cena: "
 				<< category.readDishList()[i].readDishPrice()
-				<< "  "
-				<< category.readDishList()[i].readDishTime()
 				<< endl;
 		}
-		cout << "\np - powrot\n\n";
-		cout << "Wybierz produkt: ";
+		cout << "\np - powrot\n";
+		cout << "\nd - zobacz opisy dan\n\n";
+		cout << "Wybierz numer produkt lub inne dzialanie: ";
 		cin >> this->chooseDish;
 		system("cls");
+		
 		if (this->chooseDish == 'p') break;
+		
+		if (this->chooseDish == 'd') this->dishesDescriptionMenu(category);
+		
 		//Checking if user choose is a number
 		int tempChose = ((int)this->chooseDish - 49);
 		if (tempChose >= 0 && ((int)this->chooseDish - 48) <= (int)category.readDishList().size()) {
@@ -259,6 +267,34 @@ void Menu::dishesMenu(Category category)
 	}
 }
 
+void Menu::dishesDescriptionMenu(Category category)
+{
+	while (true) {
+		cout << "Kategoria " << category.readCategoryName() << endl << endl << endl;
+		//TODO Do it better
+		for (int i = 0; i < category.readDishList().size(); i++) {
+			cout << (i + 1)
+				<< ". "
+				<< category.readDishList()[i].readDishName()
+				<< endl << endl
+				<< "\t" << category.readDishList()[i].readDishDescription()
+				<< endl << endl
+				<< "\tAlergeny: "
+				<< endl
+				<< "\t" << category.readDishList()[i].readDishAlergens()
+				<< endl << endl << endl;
+		}
+		cout << "\np - powrot\n\n";
+		cin >> this->chooseDish;
+		system("cls");
+		
+		if (this->chooseDish == 'p') break;
+		//Checking if user choose is a number
+		
+		system("cls");
+	}
+}
+
 void Menu::basketMenu(std::string* address) {
 	system("cls");
 	cout << "Koszyk" << endl;
@@ -274,10 +310,10 @@ void Menu::basketMenu(std::string* address) {
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
-	cout << "\nczas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << " minut" << endl;
+	cout << "\nCzas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << " minut" << endl;
 	cout << "\nKoszt calkowity: " << this->cart.readCartPrice() << endl;
 	cout << "\na - Przejdz do podsumowania\n";
-	cout << "Dowolny klawisz - powrot\n";
+	cout << "Dowolny inny znak - powrot\n";
 	cout << "\nWybor: ";
 	cin >> this->chooseBasket;
 
