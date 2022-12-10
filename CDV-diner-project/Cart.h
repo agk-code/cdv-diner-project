@@ -11,6 +11,8 @@ public:
 	void addProduct(CartProduct _product);
 	std::vector<CartProduct> readCartList();
 	void incrementByProduct(int i);
+	void removeByProduct(int i);
+	void clearProducts();
 	double readCartPrice();
 };
 

@@ -11,6 +11,7 @@ private:
 	char chooseCategory;
 	char chooseDish;
 	char chooseBasket;
+	char chooseEditBasket;
 	Cart cart;
 	void showRestaurantData();
 	void setName(std::string* name);
@@ -21,7 +22,9 @@ private:
 	void categoryMenu(ProductsList productList);
 	void dishesMenu(Category category);
 	void dishesDescriptionMenu(Category category);
+	void basketShowProducts();
 	void basketMenu(std::string* address);
+	void editBasketMenu();
 public:
 	Menu(Cart *_cart);
 	~Menu();
