@@ -21,7 +21,7 @@ private:
 	void categoryMenu(ProductsList productList);
 	void dishesMenu(Category category);
 	void dishesDescriptionMenu(Category category);
-	void basketMenu(std::string* address);
+	void basketMenu(std::string* address, bool* delivery);
 public:
 	Menu(Cart *_cart);
 	~Menu();

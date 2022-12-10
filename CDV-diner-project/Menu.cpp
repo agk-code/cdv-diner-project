@@ -47,7 +47,7 @@ void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bo
 			exit(0);
 		}
 		if (this->chooseCategory == 'k') {
-			this->basketMenu(address);
+			this->basketMenu(address, delivery);
 		}
 		else {
 			system("cls");
@@ -175,6 +175,7 @@ void Menu::deliveryChosen(string *deliveryTime) {
 	while (true) {
 		cout << "Zamowienia przyjmujemy do godziny 22:59" << endl << endl;
 		cout << "Podaj godzine dostawy (HH), wcisnij enter, a pozniej podaj minuty (MM): ";
+		cout << endl;
 		cin >> deliveryHour >> c >> deliveryMinutes;
 		while (!cin.good()) {
 			system("cls");
@@ -223,7 +224,7 @@ void Menu::dishesMenu(Category category)
 				<< category.readDishList()[i].readDishPrice()
 				<< endl;
 		}
-		cout << "\np - powrot\n";
+		cout << "\np - powrot";
 		cout << "\nd - zobacz opisy dan\n\n";
 		cout << "Wybierz numer produkt lub inne dzialanie: ";
 		cin >> this->chooseDish;
@@ -289,28 +290,24 @@ void Menu::dishesDescriptionMenu(Category category)
 		system("cls");
 		
 		if (this->chooseDish == 'p') break;
-		//Checking if user choose is a number
 		
 		system("cls");
 	}
 }
 
-void Menu::basketMenu(std::string* address) {
+void Menu::basketMenu(std::string* address, bool* delivery) {
 	system("cls");
-	cout << "Koszyk" << endl;
-	cout << "ID Nazwa Cena Czas Przygotowania Ilosc" << endl;
+	cout << "Koszyk" << endl << endl;
 	for (int i = 0; i < this->cart.readCartList().size(); i++) {
 		cout << (i + 1) << ". " 
 			<< this->cart.readCartList()[i].readProductName()
-			<< "   "
+			<< "   Cena: "
 			<< this->cart.readCartList()[i].readProductPrice()
-			<< "   "
-			<< this->cart.readCartList()[i].readProductTime()
-			<< "   "
+			<< "   Ilosc: "
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
-	cout << "\nCzas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << " minut" << endl;
+	cout << "\nCzas przygotowania to: " << Utils::PrepTime(this->cart.readCartList(), delivery) << " minut" << endl;
 	cout << "\nKoszt calkowity: " << this->cart.readCartPrice() << endl;
 	cout << "\na - Przejdz do podsumowania\n";
 	cout << "Dowolny inny znak - powrot\n";
@@ -318,7 +315,11 @@ void Menu::basketMenu(std::string* address) {
 	cin >> this->chooseBasket;
 
 	if (this->chooseBasket == 'a') {
-		this->setAddress(address);
+		
+		if (*delivery) {
+			this->setAddress(address);
+		}
+		
 		Bill bill;
 		bill.createBill(this->cart);
 		exit(0);
