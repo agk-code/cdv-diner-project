@@ -26,7 +26,8 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string* name, ProductsList productList, int* tableNumber, bool* delivery, std::string* deliveryTime, std::string *address)
+void Menu::initMenu(string* name, ProductsList productList, int* tableNumber, bool* delivery, std::string* deliveryTime
+)
 {
 	this->showRestaurantData();
 	this->setName(name);
@@ -128,35 +129,34 @@ void Menu::deliveryChosen(std::string* deliveryTime) {
 	const int maxHour = 23, maxMinutes = 59;
 
 	while (true) {
-		cout << "Podaj godzine dostawy (HH:MM): ";
-		struct std::tm timeInput;
-		std::cin >> std::get_time(&timeInput, "%R");
-		time_t toTest = mktime(&timeInput);
-
-		time_t currentTime;
-		time(&currentTime);
-		struct tm timeInfo;
-		localtime_s(&timeInfo, &currentTime);
-
-		int day, month, year, hour, minutes;
-
-		year = timeInfo.tm_year;
-		month = timeInfo.tm_mon + 1;
-		day = timeInfo.tm_mday;
-		hour = timeInfo.tm_hour;
-		minutes = timeInfo.tm_min;
-
-	const int maxHour = 23, maxMinutes = 59;
-
-	int deliveryHour, deliveryMinutes;
-	char c;
-	while (true) {
-		cout << "Podaj godzine dostawy (HH:MM): ";
-		cin >> deliveryHour >> c >> deliveryMinutes;
-		while (!cin.good()) {
-			system("cls");
-			cout << "Podano nieprawidlowa date" << endl;
+		while (true) {
 			cout << "Podaj godzine dostawy (HH:MM): ";
+			struct std::tm timeInput;
+			std::cin >> std::get_time(&timeInput, "%R");
+			time_t toTest = mktime(&timeInput);
+
+			time_t currentTime;
+			time(&currentTime);
+			struct tm timeInfo;
+			localtime_s(&timeInfo, &currentTime);
+
+			int day, month, year, hour, minutes;
+
+			const int maxHour = 23, maxMinutes = 59;
+
+			year = timeInfo.tm_year;
+			month = timeInfo.tm_mon + 1;
+			day = timeInfo.tm_mday;
+			hour = timeInfo.tm_hour;
+			minutes = timeInfo.tm_min;
+			time_t start = mktime(&timeInfo);
+			timeInfo.tm_hour = maxHour;
+			timeInfo.tm_min = maxMinutes;
+			time_t finish = mktime(&timeInfo);
+			if ((difftime(toTest, start) >= 0.0 && difftime(toTest, finish) < 0.0)) {
+				*deliveryTime = to_string(hour) + ":" + to_string(minutes);
+				break;
+			}
 		}
 	}
 	system("cls");
