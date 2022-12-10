@@ -296,6 +296,20 @@ void Menu::dishesDescriptionMenu(Category category)
 	}
 }
 
+void Menu::basketShowProducts() {
+	for (int i = 0; i < this->cart.readCartList().size(); i++) {
+		cout << (i + 1) << ". "
+			<< this->cart.readCartList()[i].readProductName()
+			<< "   "
+			<< this->cart.readCartList()[i].readProductPrice()
+			<< "   "
+			<< this->cart.readCartList()[i].readProductTime()
+			<< "   "
+			<< this->cart.readCartList()[i].readProductQuantity()
+			<< endl;
+	}
+}
+
 void Menu::basketMenu(std::string* address,  bool* delivery) {
 	system("cls");
 	cout << "Koszyk" << endl;
