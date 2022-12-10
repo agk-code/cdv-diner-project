@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 #include <cmath>
 #include <limits>
 
@@ -25,7 +26,7 @@ Menu::Menu(Cart *_cart)
 Menu::~Menu() {}
 
 // Main menu loop
-void Menu::initMenu(string *name, ProductsList productList, int *tableNumber, bool *delivery, std::string *deliveryTime)
+void Menu::initMenu(string* name, ProductsList productList, int* tableNumber, bool* delivery, std::string* deliveryTime, std::string *address)
 {
 	this->showRestaurantData();
 	this->setName(name);
@@ -122,21 +123,31 @@ void Menu::setDelivery(bool* delivery) {
 
 	}
 }
+void Menu::deliveryChosen(std::string* deliveryTime) {
 
-void Menu::deliveryChosen(std::string *deliveryTime) {
-	time_t currentTime;
-	time(&currentTime);
-	struct tm timeInfo;
-	localtime_s(&timeInfo, &currentTime);
-	int year, month, day, hour, minutes;
-	day = timeInfo.tm_mday;
-	month = timeInfo.tm_mon + 1;
-	year = timeInfo.tm_year + 1900;
-	hour = timeInfo.tm_hour;
-	minutes = timeInfo.tm_min;
+	const int maxHour = 23, maxMinutes = 59;
 
-	const int maxHour = 23, maxMinutes = 60;
-	
+	while (true) {
+		cout << "Podaj godzine dostawy (HH:MM): ";
+		struct std::tm timeInput;
+		std::cin >> std::get_time(&timeInput, "%R");
+		time_t toTest = mktime(&timeInput);
+
+		time_t currentTime;
+		time(&currentTime);
+		struct tm timeInfo;
+		localtime_s(&timeInfo, &currentTime);
+
+		int day, month, year, hour, minutes;
+
+		year = timeInfo.tm_year;
+		month = timeInfo.tm_mon + 1;
+		day = timeInfo.tm_mday;
+		hour = timeInfo.tm_hour;
+		minutes = timeInfo.tm_min;
+
+	const int maxHour = 23, maxMinutes = 59;
+
 	int deliveryHour, deliveryMinutes;
 	char c;
 	while (true) {
@@ -146,27 +157,11 @@ void Menu::deliveryChosen(std::string *deliveryTime) {
 			system("cls");
 			cout << "Podano nieprawidlowa date" << endl;
 			cout << "Podaj godzine dostawy (HH:MM): ";
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cin >> deliveryHour >> c >> deliveryMinutes;
-		}
-		if (deliveryHour < maxHour && deliveryMinutes < maxMinutes) {
-			if (hour < deliveryHour - 1 || (hour == deliveryHour - 1 && minutes <= deliveryMinutes + 45) ||
-				(hour == deliveryHour && minutes <= deliveryMinutes - 15)) {
-				deliveryMinutes = (int)round(deliveryMinutes / 10) * 10;
-				*deliveryTime = to_string(day) + "." + to_string(month) + "." + to_string(year) + ", " +
-					to_string(deliveryHour) + c + to_string(deliveryMinutes);
-				break;
-			}
-			else {
-				system("cls");
-				cout << "Podano nieprawidlowa wartosc" << endl;
-			}
 		}
 	}
-	
 	system("cls");
 }
+
 
 // Render category menu
 void Menu::categoryMenu(ProductsList productList)

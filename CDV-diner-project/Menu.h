@@ -16,10 +16,11 @@ private:
 	void setName(std::string* name);
 	void setTable(int* tableNumber);
 	void setDelivery(bool* delivery);
+	void setAddress(std::string* address);
 	void deliveryChosen(std::string* deliveryTime);
 	void categoryMenu(ProductsList productList);
 	void dishesMenu(Category category);
-	void basketMenu();
+	void basketMenu();	
 public:
 	Menu(Cart *_cart);
 	~Menu();
