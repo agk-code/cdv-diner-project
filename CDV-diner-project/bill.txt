@@ -1,3 +1,5 @@
-Zamowienie w restauraji JoJo's Bizarre Diner
-Koszmar bota telemarketera	 Cena:25.99	 Ilosc:1
-Suma: 25.99
+Silver rapier	 Cena:22.99	 Ilosc:1
+Red Magician's plate	 Cena:23.99	 Ilosc:1
+Rozgrzewajaca herbata	 Cena:8.99	 Ilosc:1
+13s surprise	 Cena:14.99	 Ilosc:1
+Suma: 70.96

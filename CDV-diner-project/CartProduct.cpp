@@ -1,6 +1,8 @@
 #include "CartProduct.h"
 #include "Dish.h"
 
+#include <iostream>
+
 // Constructor
 CartProduct::CartProduct(Dish _dish, int _quantity)
 {
@@ -34,5 +36,7 @@ int CartProduct::readProductQuantity()
 
 void CartProduct::incrementProductQuantity()
 {
+	std::cout << "Increment" << " " << this->quantity << std::endl;
 	this->quantity += 1;
+	std::cout << "Quantity after increment: " << this->quantity << std::endl;
 }

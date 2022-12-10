@@ -202,12 +202,11 @@ void Menu::dishesMenu(Category category)
 		if (tempChose >= 0 && ((int)this->chooseDish - 48) <= (int)category.readDishList().size()) {
 			
 			//make products in cart add their quantity
-			
-			
+
 			if (this->cart.readCartList().size() > 0) {
 				for (int i = 0; i < cart.readCartList().size(); i++) {
 					if (this->cart.readCartList()[i].readProductName() == category.readDishList()[tempChose].readDishName()) {
-						this->cart.readCartList()[i].incrementProductQuantity();
+						this->cart.incrementByProduct(i);
 						break;
 					}
 					else {
@@ -221,9 +220,9 @@ void Menu::dishesMenu(Category category)
 			}
 			
 			else {
-			CartProduct tempCartProduct(category.readDishList()[tempChose], 1);
-			this->cart.addProduct(tempCartProduct);
-			break;
+				CartProduct tempCartProduct(category.readDishList()[tempChose], 1);
+				this->cart.addProduct(tempCartProduct);
+				break;
 			}
 		}
 		system("cls");
@@ -245,13 +244,13 @@ void Menu::basketMenu() {
 			<< this->cart.readCartList()[i].readProductQuantity()
 			<< endl;
 	}
-	cout << "czas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << " minut" << endl;
-	cout << "Koszt calkowity: " << this->cart.readCartPrice() << endl;
-	cout << "p - Przejdz do podsumowania\n";
+	cout << "\nczas przygotowania to: " << Utils::PrepTime(this->cart.readCartList()) << " minut" << endl;
+	cout << "\nKoszt calkowity: " << this->cart.readCartPrice() << endl;
+	cout << "\na - Przejdz do podsumowania\n";
 	cout << "Dowolny klawisz - powrot\n";
-	cout << "Wybor: ";
+	cout << "\nWybor: ";
 	cin >> this->chooseBasket;
-	if (this->chooseBasket == 'p') {
+	if (this->chooseBasket == 'a') {
 		Bill bill;
 		bill.createBill(this->cart);
 		exit(0);
