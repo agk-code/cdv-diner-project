@@ -1,5 +1,5 @@
-Silver rapier	 Cena:22.99	 Ilosc:1
-Red Magician's plate	 Cena:23.99	 Ilosc:1
-Rozgrzewajaca herbata	 Cena:8.99	 Ilosc:1
-13s surprise	 Cena:14.99	 Ilosc:1
-Suma: 70.96
+Zamowienie w restauraji JoJo's Bizarre Diner
+
+Hamon juice soup	 Cena:13.99	 Ilosc:5
+
+Suma: 69.95 dabloons

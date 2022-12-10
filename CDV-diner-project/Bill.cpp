@@ -16,11 +16,11 @@ void Bill::createBill(Cart cart)
 	fstream plik;
 	plik.open("bill.txt", ios::out);
 	
+	plik << "Zamowienie w restauraji JoJo's Bizarre Diner" << endl << endl;
 	
 	for (int i = 0; i < cart.readCartList().size(); i++) {
 		
 		plik
-			<< "Zamowienie w restauraji JoJo's Bizarre Diner" << endl
 			<< cart.readCartList()[i].readProductName()
 			<< "\t Cena:"
 			<< cart.readCartList()[i].readProductPrice()
@@ -29,7 +29,7 @@ void Bill::createBill(Cart cart)
 			<< endl;
 	}
 
-	plik << "Suma: " << cart.readCartPrice() << endl;
+	plik << endl << "Suma: " << cart.readCartPrice() << " dabloons" << endl;
 	//TODO add time or delivery address
 	plik.close();
 	

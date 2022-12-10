@@ -12,7 +12,7 @@ using json = nlohmann::json;
 
 using namespace Utils;
 
-int Utils::PrepTime(std::vector<CartProduct> product_list)
+int Utils::PrepTime(std::vector<CartProduct> product_list, bool delivery)
 {
     std::vector<int> prep_time;
     for (int i = 0; i < product_list.size(); i++)
@@ -53,6 +53,10 @@ int Utils::PrepTime(std::vector<CartProduct> product_list)
         }
     }
 
+    if (delivery) {
+        max += 15;
+    }
+    
     return max;
     
 }
