@@ -23,7 +23,7 @@ private:
 	void dishesMenu(Category category);
 	void dishesDescriptionMenu(Category category);
 	void basketShowProducts();
-	void basketMenu(std::string* address);
+	void basketMenu(std::string* address, bool* delivery);
 	void editBasketMenu();
 public:
 	Menu(Cart *_cart);

@@ -28,6 +28,6 @@ int main()
 	Menu menu(&cart);
 
 	// Initializing basic objects
-  Utils::createCategoryAndDishesVectors(&productsList);
+	Utils::createCategoryAndDishesVectors(&productsList);
 	menu.initMenu(&name, productsList, &tableNumber, &delivery, &deliveryTime, &address);
 }
