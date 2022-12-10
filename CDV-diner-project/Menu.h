@@ -20,6 +20,7 @@ private:
 	void deliveryChosen(std::string* deliveryTime);
 	void categoryMenu(ProductsList productList);
 	void dishesMenu(Category category);
+	void dishesDescriptionMenu(Category category);
 	void basketMenu(std::string* address);
 public:
 	Menu(Cart *_cart);

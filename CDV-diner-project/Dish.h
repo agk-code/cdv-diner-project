@@ -21,6 +21,8 @@ public:
 	);
 	~Dish();
 	std::string readDishName();
+	std::string readDishDescription();
+	std::string readDishAlergens();
 	double readDishPrice();
 	int readDishTime();
 };
