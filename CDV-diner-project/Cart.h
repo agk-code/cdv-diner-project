@@ -10,6 +10,7 @@ public:
 	~Cart();
 	void addProduct(CartProduct _product);
 	std::vector<CartProduct> readCartList();
+	void incrementByProduct(int i);
 	double readCartPrice();
 };
 
