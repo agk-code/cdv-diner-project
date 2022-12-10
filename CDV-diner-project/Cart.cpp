@@ -1,5 +1,7 @@
 #include "Cart.h"
 
+#include <iostream>
+
 // Constructor
 Cart::Cart() {}
 
@@ -22,6 +24,16 @@ std::vector<CartProduct> Cart::readCartList()
 void Cart::incrementByProduct(int i)
 {
 	this->list[i].incrementProductQuantity();
+}
+
+void Cart::removeByProduct(int i)
+{
+	std::cout << "Remove By Product: " << i << std::endl;
+	this->list.erase(this->list.begin() + i);
+}
+
+void Cart::clearProducts() {
+	this->list.clear();
 }
 
 double Cart::readCartPrice()

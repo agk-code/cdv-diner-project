@@ -20,6 +20,7 @@ Menu::Menu(Cart *_cart)
 	this->chooseCategory = '1';
 	this->chooseDish = '1';
 	this->chooseBasket = '1';
+	this->chooseEditBasket = '1';
 }
 
 // Destructor
@@ -295,22 +296,16 @@ void Menu::dishesDescriptionMenu(Category category)
 	}
 }
 
-void Menu::basketMenu(std::string* address, bool* delivery) {
+void Menu::basketMenu(std::string* address,  bool* delivery) {
 	system("cls");
-	cout << "Koszyk" << endl << endl;
-	for (int i = 0; i < this->cart.readCartList().size(); i++) {
-		cout << (i + 1) << ". " 
-			<< this->cart.readCartList()[i].readProductName()
-			<< "   Cena: "
-			<< this->cart.readCartList()[i].readProductPrice()
-			<< "   Ilosc: "
-			<< this->cart.readCartList()[i].readProductQuantity()
-			<< endl;
-	}
+	cout << "Koszyk" << endl;
+	this->basketShowProducts();
+	
 	cout << "\nCzas przygotowania to: " << Utils::PrepTime(this->cart.readCartList(), delivery) << " minut" << endl;
 	cout << "\nKoszt calkowity: " << this->cart.readCartPrice() << endl;
 	cout << "\na - Przejdz do podsumowania\n";
-	cout << "Dowolny inny znak - powrot\n";
+	cout << "e - Edycja koszyka\n";
+	cout << "p - powrot\n";
 	cout << "\nWybor: ";
 	cin >> this->chooseBasket;
 
@@ -324,6 +319,36 @@ void Menu::basketMenu(std::string* address, bool* delivery) {
 		bill.createBill(this->cart);
 		exit(0);
 	}
+	if (this->chooseBasket == 'e') {
+		this->editBasketMenu();
+	}
+
 	system("cls");
 }
 
+void Menu::editBasketMenu() {
+
+	while (true) {
+		system("cls");
+		cout << "Usuwanie" << endl;
+		this->basketShowProducts();
+
+		cout << "\np - powrot\n";
+		cout << "\nWybor: ";
+		cin >> this->chooseEditBasket;
+
+		if(this->chooseEditBasket == 'p') break;
+
+		//Checking if user choose is a number
+		int tempChoose = ((int)this->chooseDish - 49);
+		if (tempChoose >= 0 && ((int)this->chooseDish - 48) <= (int)cart.readCartList().size()) {
+			if (cart.readCartList().size() > 1) {
+				cart.removeByProduct(tempChoose);
+			}
+			else {
+				cart.clearProducts();
+			}
+			
+		}
+	};
+};
