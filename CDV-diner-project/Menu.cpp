@@ -232,19 +232,19 @@ void Menu::dishesMenu(Category category)
 			//make products in cart add their quantity
 
 			if (this->cart.readCartList().size() > 0) {
+				bool addNew = true;
 				for (int i = 0; i < cart.readCartList().size(); i++) {
 					if (this->cart.readCartList()[i].readProductName() == category.readDishList()[tempChose].readDishName()) {
 						this->cart.incrementByProduct(i);
+						addNew = false;
 						break;
 					}
-					else {
-						CartProduct tempCartProduct(category.readDishList()[tempChose], 1);
-						this->cart.addProduct(tempCartProduct);
-						break;
-					}
-					
 				}
-				break;
+
+				if (addNew) {
+					CartProduct tempCartProduct(category.readDishList()[tempChose], 1);
+					this->cart.addProduct(tempCartProduct);
+				}
 			}
 			
 			else {
@@ -252,6 +252,8 @@ void Menu::dishesMenu(Category category)
 				this->cart.addProduct(tempCartProduct);
 				break;
 			}
+
+			break;
 		}
 		system("cls");
 	}
