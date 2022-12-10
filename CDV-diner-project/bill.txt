@@ -1,5 +1,5 @@
 Zamowienie w restauraji JoJo's Bizarre Diner
 
-Hamon juice soup	 Cena:13.99	 Ilosc:5
+Hamon juice soup	 Cena:13.99	 Ilosc:3
 
-Suma: 69.95 dabloons
+Suma: 41.97 dabloons

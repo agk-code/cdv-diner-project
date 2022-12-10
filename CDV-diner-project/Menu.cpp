@@ -224,7 +224,7 @@ void Menu::dishesMenu(Category category)
 				<< category.readDishList()[i].readDishPrice()
 				<< endl;
 		}
-		cout << "\np - powrot\n";
+		cout << "\np - powrot";
 		cout << "\nd - zobacz opisy dan\n\n";
 		cout << "Wybierz numer produkt lub inne dzialanie: ";
 		cin >> this->chooseDish;
@@ -290,7 +290,6 @@ void Menu::dishesDescriptionMenu(Category category)
 		system("cls");
 		
 		if (this->chooseDish == 'p') break;
-		//Checking if user choose is a number
 		
 		system("cls");
 	}
@@ -316,7 +315,11 @@ void Menu::basketMenu(std::string* address, bool* delivery) {
 	cin >> this->chooseBasket;
 
 	if (this->chooseBasket == 'a') {
-		this->setAddress(address);
+		
+		if (*delivery) {
+			this->setAddress(address);
+		}
+		
 		Bill bill;
 		bill.createBill(this->cart);
 		exit(0);
